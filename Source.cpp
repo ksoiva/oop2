@@ -15,18 +15,18 @@ private:
 public:
 
 	UkrString(int valuenum) {
-		cout << "\nÂèêëèêàâñÿ êîíñòðóêòîð" << endl<<endl;
+		cout << "\nÃ‚Ã¨ÃªÃ«Ã¨ÃªÃ Ã¢Ã±Ã¿ ÃªÃ®Ã­Ã±Ã²Ã°Ã³ÃªÃ²Ã®Ã°" << endl<<endl;
 		num = valuenum;
 
 		str = new char[num];
-		cout << "Ââåä³òü ðÿäîê: ";
+		cout << "Ã‚Ã¢Ã¥Ã¤Â³Ã²Ã¼ Ã°Ã¿Ã¤Ã®Ãª: ";
 		gets_s(str, num);
 		num = strlen(str);
 		this->copnum = num;
 	}
 
 	UkrString(const UkrString& copstr) {
-		cout << "\nÂèêëèêàâñÿ êîíñòðóêòîð êîï³þâàííÿ" << endl<<endl;
+		cout << "\nÃ‚Ã¨ÃªÃ«Ã¨ÃªÃ Ã¢Ã±Ã¿ ÃªÃ®Ã­Ã±Ã²Ã°Ã³ÃªÃ²Ã®Ã° ÃªÃ®Ã¯Â³Ã¾Ã¢Ã Ã­Ã­Ã¿" << endl<<endl;
 		this->copnum = copstr.copnum + 1;
 		this->str = new char[copstr.copnum + 1];
 		int i;
@@ -44,10 +44,10 @@ public:
 	}
 
 	bool Check() {
-		return (bool)strncmp(str, substr, num);
+		return (bool)strstr(str, substr);
 	}
 
-	void Ñoncatenation() {
+	void Ã‘oncatenation() {
 		strncat(str, substr, subnum);
 		num += subnum;
 	}
@@ -58,7 +58,7 @@ public:
 	}
 
 	~UkrString() {
-		cout << "Âèêëèêàâñÿ äåñòðóêòîð" << endl;
+		cout << "Ã‚Ã¨ÃªÃ«Ã¨ÃªÃ Ã¢Ã±Ã¿ Ã¤Ã¥Ã±Ã²Ã°Ã³ÃªÃ²Ã®Ã°" << endl;
 		delete[] str;
 	}
 };
@@ -67,14 +67,14 @@ int main() {
 	system("chcp 1251");
 	UkrString sent1(25);
 	UkrString sent2(sent1);
-	cout << "Ââåä³òü ï³äðÿäîê: ";
+	cout << "Ã‚Ã¢Ã¥Ã¤Â³Ã²Ã¼ Ã¯Â³Ã¤Ã°Ã¿Ã¤Ã®Ãª: ";
 	sent1.Inputsub();
-	if (sent1.Check() == true) {
-		cout << "Ï³äðÿäîê íå âõîäèòü ó ðÿäîê."<<endl;
-		sent1.Ñoncatenation();
-		cout << "Ðÿäîê ï³ñëÿ êîíêàòåíàö³¿: ";
+	if (sent1.Check() == false) {
+		cout << "ÃÂ³Ã¤Ã°Ã¿Ã¤Ã®Ãª Ã­Ã¥ Ã¢ÃµÃ®Ã¤Ã¨Ã²Ã¼ Ã³ Ã°Ã¿Ã¤Ã®Ãª."<<endl;
+		sent1.Ã‘oncatenation();
+		cout << "ÃÃ¿Ã¤Ã®Ãª Ã¯Â³Ã±Ã«Ã¿ ÃªÃ®Ã­ÃªÃ Ã²Ã¥Ã­Ã Ã¶Â³Â¿: ";
 		sent1.Output();
 	}
-	else cout << "\nÏ³äðÿäîê âõîäèòü ó ðÿäîê." << endl;
+	else cout << "ÃÂ³Ã¤Ã°Ã¿Ã¤Ã®Ãª Ã¢ÃµÃ®Ã¤Ã¨Ã²Ã¼ Ã³ Ã°Ã¿Ã¤Ã®Ãª." << endl;
 	return 0;
 }
